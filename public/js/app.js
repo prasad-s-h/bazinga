@@ -18,6 +18,12 @@ rhymingWordsForm.addEventListener('submit', e => {
           let dropdownTemplateHTML;
           let new_data = {};
           if (score_from.value && score_to.value) {
+            if (score_from.value > score_to.value) {
+              alert(
+                'score_from value should be lesser than or equal to score_to value'
+              );
+              return;
+            }
             new_data.result = data.result.filter(ele => {
               if (
                 ele.score >= score_from.value &&
